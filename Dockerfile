@@ -1,4 +1,4 @@
-FROM runmymind/docker-android-sdk:ubuntu-standalone-76359fe5
+FROM runmymind/docker-android-sdk:alpine-standalone-76359fe5
 
 RUN apk update && apk upgrade && \
     apk del openjdk11 && \
