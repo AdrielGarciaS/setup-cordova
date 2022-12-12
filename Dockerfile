@@ -1,11 +1,12 @@
-FROM runmymind/docker-android-sdk:alpine-standalone
+FROM runmymind/docker-android-sdk:ubuntu-standalone-76359fe5
 
 RUN apk update && apk upgrade && \
-    # apk del openjdk11 && \
+    apk del openjdk11 && \
     apk add gradle npm openjdk8 && \
+    npm config set unsafe-perm true && \
     npm install -g cordova
 
-# ENV JAVA_HOME "/usr/lib/jvm/java-8-openjdk"
+ENV JAVA_HOME "/usr/lib/jvm/java-8-openjdk"
 
 COPY entrypoint.sh /usr/src/entrypoint.sh
 
